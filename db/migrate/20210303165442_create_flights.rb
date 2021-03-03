@@ -4,7 +4,7 @@ class CreateFlights < ActiveRecord::Migration[6.1]
       t.string :start
       t.string :end
       t.datetime :scheduled
-      t.interger :duration
+      t.time :duration
       t.references :airport, null: false, foreign_key: true
 
       t.timestamps
