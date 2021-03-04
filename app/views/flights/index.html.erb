@@ -1,0 +1,6 @@
+<h3>Select a flight</h3>
+
+<% form_for @flight do |f| %>
+    <%= f.collection_select :flight_id, Flight.order(:scheduled), :id, :start %>
+    <%= f.submit %>
+<% end %>
