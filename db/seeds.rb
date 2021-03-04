@@ -8,7 +8,7 @@
 
 airports = Airport.create!([{ code: 'SFO' }, { code: 'NYC' }, { code: 'CHI' }, { code: 'DFT' }, { code: 'BOS' }, { code: 'DTW' }, { code: 'TPA' }, { code: 'PDX' }, { code: 'LAX' }])
 flights = Flight.create!([
-        { start: 'SFO', end: 'NYC', scheduled: Time.strptime('01/10/2021 10:30', '%m/%d/%Y %H:%M'), duration: Time.strptime('6:00', '%H:%M'), airport_id: 2 }, 
+        { start: 'SFO', end: 'NYC', scheduled: Time.strptime('01/10/2021 10:30', '%m/%d/%Y %H:%M'), duration: Time.strptime('6:00', '%H:%M'), airport_id: 1 }, 
         { start: 'NYC', end: 'SFO', scheduled: Time.strptime('01/10/2021 02:00', '%m/%d/%Y %H:%M'), duration: Time.strptime('7:00', '%H:%M'), airport_id: 2 },
         { start: 'NYC', end: 'SFO', scheduled: Time.strptime('01/10/2021 10:30', '%m/%d/%Y %H:%M'), duration: Time.strptime('6:00', '%H:%M'), airport_id: 2 },
         { start: 'NYC', end: 'SFO', scheduled: Time.strptime('01/10/2021 18:30', '%m/%d/%Y %H:%M'), duration: Time.strptime('6:00', '%H:%M'), airport_id: 2 }, 
