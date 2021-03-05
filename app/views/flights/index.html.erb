@@ -1,6 +1,11 @@
 <h3>Select a flight</h3>
 
-<% form_for @flight do |f| %>
-    <%= f.collection_select :flight_id, Flight.order(:scheduled), :id, :start %>
+<%= form_with model: @airport do |f| %>
+    <h4>From</h4>
+    <%= f.collection_select :airport_id, Airport.order(:code), :id, :code %>
+    <h4>To</h4>
+    <%= f.collection_select :airport_id, Airport.order(:code), :id, :code %>
+    <h4>Number of passengers</h4>
+    <%= f.select :passangers, options_for_select(1..4), { prompt: "No passengers" } %>
     <%= f.submit %>
 <% end %>
