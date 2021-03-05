@@ -7,5 +7,6 @@
     <%= f.collection_select :airport_id, Airport.order(:code), :id, :code %>
     <h4>Number of passengers</h4>
     <%= f.select :passangers, options_for_select(1..4), { prompt: "No passengers" } %>
+    <%= select_tag "flight", options_from_collection_for_select(Flight.get_scheduled_dates, 'scheduled', :flight_date_formatted) %>
     <%= f.submit %>
 <% end %>
