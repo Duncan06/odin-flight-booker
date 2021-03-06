@@ -2,7 +2,7 @@ class Flight < ApplicationRecord
   belongs_to :airport
 
   def flight_date_formatted
-    scheduled.strftime("%m/%d/%Y")
+    scheduled.strftime("%m/%d/%Y %I:%M%p")
   end
 
   def self.get_scheduled_dates
