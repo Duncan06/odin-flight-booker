@@ -1,6 +1,6 @@
 <h3>Select a flight</h3>
 
-<%= form_with model: @airport do |f| %>
+<%= form_with model: @airport, method: :get do |f| %>
     <h4>From</h4>
     <%= f.collection_select :airport_id, Airport.order(:code), :id, :code %>
     <h4>To</h4>
