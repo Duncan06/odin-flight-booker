@@ -2,12 +2,12 @@
 
 <%= form_with model: @airport, method: :get do |f| %>
     <h4>From</h4>
-    <%= f.collection_select :airport_id, Airport.order(:code), :id, :code %>
+    <%= f.collection_select :from_code, Airport.order(:code), :id, :code %>
     <h4>To</h4>
-    <%= f.collection_select :airport_id, Airport.order(:code), :id, :code %>
+    <%= f.collection_select :to_code, Airport.order(:code), :id, :code %>
     <h4>Number of passengers</h4>
-    <%= f.select :passangers, options_for_select(1..4), { prompt: "No passengers" } %>
+    <%= f.select :num_tickets, options_for_select(1..4), { prompt: "No passengers" } %>
     <h4>Date and time</h4>
-    <%= select_tag "flight", options_from_collection_for_select(Flight.get_scheduled_dates, 'scheduled', :flight_date_formatted) %>
+    <%= select_tag "date", options_from_collection_for_select(Flight.get_scheduled_dates, 'scheduled', :flight_date_formatted) %>
     <%= f.submit %>
 <% end %>
