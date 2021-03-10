@@ -11,3 +11,9 @@
     <%= select_tag "date", options_from_collection_for_select(Flight.get_scheduled_dates, 'scheduled', :flight_date_formatted) %>
     <%= f.submit %>
 <% end %>
+
+<% if @flights != nil %>
+    <% @flights.each do |flight| %>
+        <p><%= flight.start %></p>
+    <% end %>
+<% end %>
