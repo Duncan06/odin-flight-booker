@@ -8,7 +8,7 @@
     <h4>Number of passengers</h4>
     <%= f.select :num_tickets, options_for_select(1..4), { prompt: "No passengers" } %>
     <h4>Date and time</h4>
-    <%= select_tag "date", options_from_collection_for_select(Flight.get_scheduled_dates, 'scheduled', :flight_date_formatted) %>
+    <%= select_tag "date", options_for_select(Flight.get_scheduled_dates) %>
     <%= f.submit %>
 <% end %>
 
