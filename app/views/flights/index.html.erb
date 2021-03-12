@@ -13,5 +13,5 @@
 <% end %>
 
 <% @flights.each do |flight| %>
-    <p><%= flight.start %>, <%= flight.end %>, <%= flight.scheduled %>, <%= flight.duration %></p>
+    <p><%= flight.start %>, <%= flight.end %>, <%= flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, <%= flight.duration.strftime('%m-%d-%Y %I:%M %p') %></p>
 <% end %>
