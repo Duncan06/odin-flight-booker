@@ -9,9 +9,13 @@
     <%= f.select :num_tickets, options_for_select(1..4), { prompt: "No passengers" } %>
     <h4>Date and time</h4>
     <%= select_tag "date", options_for_select(Flight.get_scheduled_dates) %>
-    <%= f.submit %>
+    <%= f.submit "Search" %>
 <% end %>
 
-<% @flights.each do |flight| %>
-    <p><%= flight.start %>, <%= flight.end %>, <%= flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, <%= flight.duration.strftime('%m-%d-%Y %I:%M %p') %></p>
+<% unless @flights.nil? %>
+    <% if @flights.any? %>
+        <%= render "search_results_form" %>
+    <% else %>
+        <p>No listed available flights.</p>
+    <% end %>
 <% end %>
