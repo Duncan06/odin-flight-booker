@@ -1,5 +1,7 @@
 class Flight < ApplicationRecord
   belongs_to :airport
+  has_many :bookings
+  has_many :passengers, through: :bookings
 
   def self.get_scheduled_dates
       scheduled_dates = Flight.find_by_sql("select distinct scheduled from flights where scheduled is not null order by scheduled")
