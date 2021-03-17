@@ -1,0 +1,14 @@
+<%= form_for @booking do |f| %>>
+    <h3>The flight you selected</h3>
+    <p>Starting from <%= @flight.start %>, to <%= @flight.end %>, leaving <%= @flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, arriving <%= @flight.duration.strftime('%m-%d-%Y %I:%M %p') %></p>
+    <%= f.fields_for :passengers do |passenger_form| %>
+        <li>
+            <h5>Passenger <%= passenger_form.index + 1%></h5>
+            <%= passenger_form.label :name, "Name of passenger" %>
+            <%= passenger_form.text_field :name %>
+            <%= passenger_form.label :email, "Email" %>
+            <%= passenger_form.text_field :email %></br>
+        </li>
+    <% end %>
+    <%= f.submit %>
+<% end %>
