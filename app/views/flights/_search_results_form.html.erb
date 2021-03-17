@@ -4,7 +4,7 @@
         <p>From <%= flight.start %>, to <%= flight.end %>, departs <%= flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, arrives <%= flight.duration.strftime('%m-%d-%Y %I:%M %p') %></p>
     <% end %>
 
-    <%= f.hidden_field :num_tickets, :value => @vars[:num_tickets] %>
+    <%= f.hidden_field :num_tickets, :value => params[:num_tickets] %>
 
     <%= f.submit "Select flight" %>
 <% end %>
