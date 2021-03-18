@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
 
     def show
+        @booking = Booking.find(params[:id])
+        p @booking
     end
 
     def new
@@ -11,6 +13,14 @@ class BookingsController < ApplicationController
     end
     
     def create
+        @booking = Booking.new(bookings_params)
+        if @booking.save
+            flash[:notice] = "Booking saved."
+            redirect_to booking_path(@booking)
+        else
+            flash[:alert] = "An error occurred."
+            render :new
+        end
     end
 
     private
