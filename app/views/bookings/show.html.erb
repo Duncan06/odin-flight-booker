@@ -1,6 +1,10 @@
-<% if Flight.find_by(id: flight_id) != nil %>
-    <h2>This is your flight</h2>
-    <%= Flight.find_each(id: flight_id) do |flight| %>
-        <p>Current flight <%= @flight.start %>, to <%= @flight.end %>, leaving <%= @flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, arriving <%= @flight.duration.strftime('%m-%d-%Y %I:%M %p') %></p>
-    <% end %>
+<h2>This is your flight</h2>
+<p>Current flight <%= @booking.flight.start %>, to <%= @booking.flight.end %>, leaving <%= @booking.flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, arriving <%= @booking.flight.duration.strftime('%m-%d-%Y %I:%M %p') %>
+<h3>Passengers</h3>
+<% @booking.passengers.each do |passenger| %>
+    <h5> Name and Email</h5>
+    <p><%= passenger.name %></p>
+    <p><%= passenger.email %></p>
 <% end %>
+
+<%= link_to 'Return home', root_path %>
