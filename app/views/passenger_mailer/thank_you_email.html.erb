@@ -4,14 +4,26 @@
         <meta content= 'text/html; charset=UTF-8' http-equiv='Content-Type' />
     </head>
     <body>
-        <h1>Thanks for booking a flight at example.com, <% @passenger.name %></h1>
+        <h1>Thanks for booking a flight at example.com</h1>
         <p>
             You have successfully booked a flight with example.com.
+        </p>
+        <p>
+        Your flight is:
+            <%= @booking.flight.start %>, to <%= @booking.flight.end %>, 
+            leaving <%= @booking.flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, 
+            arriving <%= @booking.flight.duration.strftime('%m-%d-%Y %I:%M %p') %>
         </p>
         <p>
             To check on your flight follow the link: <%= @url %>.
         </p>
         <p>
+            The passengers are
+            <ul>
+                <% @booking.passengers.each do |passenger| %>
+                    <li> <%= passenger.name %> </li>
+                <% end %>
+            </ul>
             Thanks for picking us to book a flight! Have a good day!
         </p>
     </body>

@@ -1,8 +1,19 @@
-Thanks for booking a flight at example.com, <% @passenger.name %>
+Thanks for booking a flight at example.com, <% @booking.passengers.name %>
 =========================================================================
 
 You have successfully booked a flight with example.com.
+Your flight is:
+    <%= @booking.flight.start %>, to <%= @booking.flight.end %>, 
+    leaving <%= @booking.flight.scheduled.strftime('%m-%d-%Y %I:%M %p') %>, 
+    arriving <%= @booking.flight.duration.strftime('%m-%d-%Y %I:%M %p') %>
 
 To check on your flight follow the link: <%= @url %>.
+
+The passengers are
+
+    <% @booking.passengers.each do |passenger| %>
+        <%= passenger.name %>
+    <% end %>
+
 
 Thanks for picking us to book a flight! Have a good day!
